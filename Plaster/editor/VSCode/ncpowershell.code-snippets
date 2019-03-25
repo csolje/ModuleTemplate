@@ -1,0 +1,73 @@
+{
+    "Description": {
+        "prefix": "desc",
+        "body": [
+            "<#",
+            ".SYNOPSIS",
+            "",
+            ".DESCRIPTION",
+            "",
+            ".EXAMPLE",
+            "",
+            ".LINK",
+            "",
+            "#>"
+        ],
+        "description": "Makes your description"
+    },
+    "NCPSScript": {
+        "prefix": "NCPSScript",
+        "body": [
+            "<#",
+            ".SYNOPSIS",
+            "",
+            ".DESCRIPTION",
+            "",
+            ".PARAMETER p",
+            "",
+            ".EXAMPLE",
+            "Short description",
+            "",
+            "Command + Args",
+            "#>",
+            "",
+            "",
+            "[CmdletBinding()]",
+            "param (",
+            "    # Parameter comments",
+            "    [Parameter()]",
+            "    [${2:ParameterType}] ${3:ParameterName}",
+            ")",
+            "",
+            "}"
+        ],
+        "description": "Sets up the base for your script"
+    },
+    "NCPSFunction": {
+        "prefix": "NCPSFunction",
+        "body": [
+            "function ${1:Verb-Noun}",
+            "{",
+            "\t<#",
+            "\t.SYNOPSIS",
+            "\t\t${2:Quick Synopsis}",
+            "\t.DESCRIPTION",
+            "\t\t${3:Short Description}",
+            "\t.EXAMPLE",
+            "\t\tShort description of the demonstrated example.",
+            "\t\tCommand + Args",
+            "\t#>",
+            "",
+            "",
+            "\t[CmdletBinding()]",
+            "\tparam (",
+            "\t\t# ${4:Parameter comments}",
+            "\t\t[Parameter(${5:AttributeValues})]",
+            "\t\t[${6:ParameterType}]${7:ParameterName}",
+            "\t)",
+            "\t$8",
+            "}"
+        ],
+        "description": "Sets up the base for your function script"
+    }
+}

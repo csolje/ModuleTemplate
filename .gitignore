@@ -1,0 +1,7 @@
+.DS_Store
+*.zip
+*.pdf
+*.docx
+*.xlsx
+*.tfvars
+Guides/*

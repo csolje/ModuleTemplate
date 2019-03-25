@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<plasterManifest schemaVersion="1.1" templateType="Project"
+    xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
+    <metadata>
+        <name>NCNewPowerShellScriptModule</name>
+        <id>f62f7113-6273-481c-a039-6abcc115641f</id>
+        <version>0.0.1</version>
+        <title>Netcompany New PowerShell Manifest Module</title>
+        <description>Scaffolds the files required for a PowerShell script module</description>
+        <tags>Module, ScriptModule, ModuleManifest</tags>
+    </metadata>
+    <parameters>
+        <parameter name="ModuleName"
+                   type="text"
+                   prompt="Name of the module" />
+        <parameter name="Description"
+                   type="text"
+                   prompt="Brief description of module" />
+        <parameter name="Editor"
+                   type="choice"
+                   prompt="Select an editor for editor integration (or None):"
+                   default="1"
+                   store="text" >
+            <choice label="&amp;None"
+                    help="No editor specified."
+                    value="None"/>
+            <choice label="Visual Studio &amp;Code"
+                    help="Your editor is Visual Studio Code."
+                    value="VSCode"/>
+        </parameter>
+    </parameters>
+    <content>
+        <message>&#10;&#10;Scaffolding your PowerShell Module...&#10;&#10;&#10;</message>
+        <message>&#10;&#10;Deploying common files&#10;&#10;</message>
+
+        <file source="module.psm1"
+              destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psm1"
+              openInEditor="true"/>
+        <templateFile source="test\Module.T.ps1"
+                      destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\tests\${PLASTER_PARAM_ModuleName}.tests.ps1" />
+        <templateFile source="test\Function.T.ps1"
+                      destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\tests\internal.tests.ps1" />
+        <templateFile source="test\Function.T.ps1"
+                      destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\tests\functions.tests.ps1" />
+
+        <file condition="$PLASTER_PARAM_Editor -eq 'VSCode'"
+              source="editor\VSCode\settings.json"
+              destination="${PLASTER_PARAM_ModuleName}\.vscode\settings.json" />
+        <file condition="$PLASTER_PARAM_Editor -eq 'VSCODE'"
+              source="editor\VSCode\ncpowershell.code-snippets"
+              destination="${PLASTER_PARAM_ModuleName}\.vscode\ncpowershell.code-snippets" />
+        <templateFile condition="$PLASTER_PARAM_Editor -eq 'VSCode'"
+              source="editor\VSCode\tasks.json"
+              destination="${PLASTER_PARAM_ModuleName}\.vscode\tasks.json" />
+        <file source="files\function.ps1"
+              destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\internal\internal.ps1"  />
+        <file source="files\function.ps1"
+              destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\functions\functions.ps1" />
+        <file source="files\lib.ps1"
+              destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\lib\lib.ps1"/>
+        <file source="files\RequiredModule.class.ps1"
+              destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\lib\RequiredModule.class.ps1"/>
+        <file source="files\RequiredModules.ps1"
+              destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\lib\RequiredModules.ps1"/>
+
+        <message>&#10;&#10;Deploying Git files&#10;&#10;</message>
+
+        <templateFile source="files\xREADME.md"
+              destination="${PLASTER_PARAM_ModuleName}\README.md" />
+        <file source="files\.gitignore"
+              destination="${PLASTER_PARAM_ModuleName}\.gitignore" />
+        <file source="files\.gitattributes"
+              destination="${PLASTER_PARAM_ModuleName}\.gitattributes" />
+
+        <message>&#10;&#10;Build script files&#10;&#10;</message>
+
+        <file source='files\psake.ps1'
+              destination="${PLASTER_PARAM_ModuleName}\psake.ps1" />
+        <templateFile source="files\build.ps1"
+                      destination="${PLASTER_PARAM_ModuleName}\build.ps1" />
+
+        <message>&#10;&#10;Creating Module Manifest&#10;&#10;</message>
+
+        <newModuleManifest destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psd1"
+                           moduleVersion="${PLASTER_PARAM_Version}"
+                           rootModule="${PLASTER_PARAM_ModuleName}.psm1"
+                           author=""
+                           companyName="Netcompany A/S"
+                           description="${PLASTER_PARAM_Description}"
+                           powerShellVersion="4.0"
+                           encoding="UTF8-NoBOM"
+                           openInEditor="true"/>
+
+        <requireModule name="Pester" minimumVersion="4.0.3"
+            message="Without Pester, you will not be able to run the provided Pester test to validate your module manifest file.`nWithout version 4.0.3, VS Code will not display Pester warnings and errors in the Problems panel."/>
+
+        <message>
+
+Your new PowerShell module project '$PLASTER_PARAM_ModuleName' has been created.
+
+        </message>
+        <message>
+
+A Pester test has been created to validate the module's manifest file.  Add additional tests to the test directory.
+You can run the Pester tests in your project by executing the 'test' task.  Press Ctrl+P, then type 'task test'.
+
+        </message>
+    </content>
+</plasterManifest>
