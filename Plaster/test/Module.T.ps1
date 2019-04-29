@@ -1,11 +1,11 @@
-$ModuleName = '<%=$PLASTER_PARAM_Name%>'
+$ModuleName = '<%=$PLASTER_PARAM_ModuleName%>'
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $internal = @(Get-ChildItem "$here\internal\*.ps1" -ErrorAction SilentlyContinue)
 $functions = @(Get-ChildItem "$here\functions\*.ps1" -ErrorAction SilentlyContinue)
 
 Describe "Module Manifest Tests" {
     It "Passes Test-ModuleManifest" {
-        Test-ModuleManifest -Path $here\$ModuleName | Should Not BeNullOrEmpty
+        Test-ModuleManifest -Path $here\$ModuleName.psd1 | Should Not BeNullOrEmpty
         $? | Should Be $true
     }
 }
