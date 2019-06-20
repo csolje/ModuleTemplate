@@ -1,4 +1,4 @@
-# ModuleTemplate
+# DevOps-Docs
 
 This repo is the documentation repo, where the DevOps Team continues to update the documention and guides.
 

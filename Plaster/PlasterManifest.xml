@@ -2,10 +2,10 @@
 <plasterManifest schemaVersion="1.1" templateType="Project"
     xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
     <metadata>
-        <name>NCNewPowerShellScriptModule</name>
+        <name>NewPowerShellScriptModule</name>
         <id>f62f7113-6273-481c-a039-6abcc115641f</id>
         <version>0.0.1</version>
-        <title>Netcompany New PowerShell Manifest Module</title>
+        <title>New PowerShell Manifest Module</title>
         <description>Scaffolds the files required for a PowerShell script module</description>
         <tags>Module, ScriptModule, ModuleManifest</tags>
     </metadata>
@@ -85,7 +85,7 @@
                            moduleVersion="${PLASTER_PARAM_Version}"
                            rootModule="${PLASTER_PARAM_ModuleName}.psm1"
                            author=""
-                           companyName="Netcompany A/S"
+                           companyName="Noname A/S"
                            description="${PLASTER_PARAM_Description}"
                            powerShellVersion="4.0"
                            encoding="UTF8-NoBOM"
