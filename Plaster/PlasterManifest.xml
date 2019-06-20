@@ -48,7 +48,7 @@
               destination="${PLASTER_PARAM_ModuleName}\.vscode\settings.json" />
         <file condition="$PLASTER_PARAM_Editor -eq 'VSCODE'"
               source="editor\VSCode\ncpowershell.code-snippets"
-              destination="${PLASTER_PARAM_ModuleName}\.vscode\ncpowershell.code-snippets" />
+              destination="${PLASTER_PARAM_ModuleName}\.vscode\powershell.code-snippets" />
         <templateFile condition="$PLASTER_PARAM_Editor -eq 'VSCode'"
               source="editor\VSCode\tasks.json"
               destination="${PLASTER_PARAM_ModuleName}\.vscode\tasks.json" />
@@ -85,7 +85,11 @@
                            moduleVersion="${PLASTER_PARAM_Version}"
                            rootModule="${PLASTER_PARAM_ModuleName}.psm1"
                            author=""
+<<<<<<< HEAD
                            companyName="Noname A/S"
+=======
+                           companyName="Sentia Denmark A/S"
+>>>>>>> 80363ed4c8db22b32296148bfa5515ae968fadeb
                            description="${PLASTER_PARAM_Description}"
                            powerShellVersion="4.0"
                            encoding="UTF8-NoBOM"

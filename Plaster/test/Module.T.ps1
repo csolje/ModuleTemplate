@@ -1,11 +1,11 @@
-$ModuleName = '<%=$PLASTER_PARAM_Name%>'
-$here = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ModuleName = '<%=$PLASTER_PARAM_ModuleName%>'
+$here = Split-Path -Parent -Path (Split-Path -Parent -Path $MyInvocation.MyCommand.Path)
 $internal = @(Get-ChildItem "$here\internal\*.ps1" -ErrorAction SilentlyContinue)
 $functions = @(Get-ChildItem "$here\functions\*.ps1" -ErrorAction SilentlyContinue)
 
 Describe "Module Manifest Tests" {
     It "Passes Test-ModuleManifest" {
-        Test-ModuleManifest -Path $here\$ModuleName | Should Not BeNullOrEmpty
+        Test-ModuleManifest -Path "$here\$ModuleName.psd1" | Should Not BeNullOrEmpty
         $? | Should Be $true
     }
 }
@@ -30,7 +30,7 @@ Describe "Module: $ModuleName" -Tags Unit {
         It "Has the internal, functions and Dependencies folders" {
             "$here\internal" | Should -Exist
             "$here\functions" | Should -Exist
-            "$here\dependencies" | Should -Exist
+            "$here\lib" | Should -Exist
         }
         It "Has functions in the folders" {
             "$here\functions\*.ps1" | Should -Exist
@@ -61,9 +61,9 @@ Describe "Module: $ModuleName" -Tags Unit {
                 It "Has Get-Help .DESCRIPTION" {
                     $CurrentFunction | Should -FileContentMatch "\.DESCRIPTION"
                 }
-                It "Has Get-Help .NOTES" {
+                <#It "Has Get-Help .NOTES" {
                     $CurrentFunction | Should -FileContentMatch "\.NOTES"
-                }
+                }#>
                 It "Has Get-Help .EXAMPLE" {
                     $CurrentFunction | Should -FileContentMatch "\.EXAMPLE"
                 }
