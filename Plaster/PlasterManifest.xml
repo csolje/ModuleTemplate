@@ -85,11 +85,7 @@
                            moduleVersion="${PLASTER_PARAM_Version}"
                            rootModule="${PLASTER_PARAM_ModuleName}.psm1"
                            author=""
-<<<<<<< HEAD
-                           companyName="Noname A/S"
-=======
                            companyName="Sentia Denmark A/S"
->>>>>>> 80363ed4c8db22b32296148bfa5515ae968fadeb
                            description="${PLASTER_PARAM_Description}"
                            powerShellVersion="4.0"
                            encoding="UTF8-NoBOM"
