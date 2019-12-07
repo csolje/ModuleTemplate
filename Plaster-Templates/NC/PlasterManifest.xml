@@ -2,11 +2,11 @@
 <plasterManifest schemaVersion="1.1" templateType="Project"
     xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
     <metadata>
-        <name>NewPowerShellScriptModule</name>
+        <name>NetcompanyPowerShellModule</name>
         <id>f62f7113-6273-481c-a039-6abcc115641f</id>
-        <version>0.0.1</version>
-        <title>New PowerShell Manifest Module</title>
-        <description>Scaffolds the files required for a PowerShell script module</description>
+        <version>1.0.0</version>
+        <title>Netcompany PowerShell Module</title>
+        <description>Scaffolds the files required for a PowerShell module</description>
         <tags>Module, ScriptModule, ModuleManifest</tags>
     </metadata>
     <parameters>
