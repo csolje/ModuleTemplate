@@ -92,6 +92,9 @@
     <file condition="(($PLASTER_PARAM_Editor -eq 'VSCode') -and ($PLASTER_PARAM_ProjectPester -eq 'Yes'))"
       source='editor\VSCode\tasks.json'
       destination='${PLASTER_PARAM_ModuleName}\.vscode\tasks.json' />
+    <file condition="(($PLASTER_PARAM_Editor -eq 'VSCode') -and ($PLASTER_PARAM_ProjectPester -eq 'Yes'))"
+      source='editor\VSCode\powershell.code-snippets'
+      destination='${PLASTER_PARAM_ModuleName}\.vscode\powershell.code-snippets' />
 
     <message> Verifying a minimum version of Pester (4.0.3) is installed. </message>
     <requireModule name="Pester" condition="$PLASTER_PARAM_ProjectPester -eq 'Yes'" minimumVersion="4.0.3"
