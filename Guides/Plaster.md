@@ -20,13 +20,13 @@ Import-Module -Name Plaster
   where the \<DestinationPath> is there the module should get created
 
 ``` powershell
-Invoke-Plaster -TemplatePath C:\Temp\ModuleTemplate\Plaster\ -DestinationPath '<DestinationPath>'
+Invoke-Plaster -TemplatePath C:\GitHub\private-repos\ModuleTemplate\Plaster-Templates\NC -DestinationPath '<DestinationPath>'
 ```
 
 - If anywhere else run "
 
 ``` powershell
-Invoke-Plaster -TemplatePath C:\GitHub\ModuleTemplate\Plaster\ -DestinationPath '<DestinationPath>'" - ModuleName "Name of the module" -Description "A quick description" -Editor VSCode
+Invoke-Plaster -TemplatePath C:\GitHub\ModuleTemplate\Plaster-Template\CustomModule\ -DestinationPath "'<DestinationPath>'" - ModuleName "Name of the module" -Description "A quick description" -Editor VSCode
 ```
 
 > Note: the destinationPath should always be the root folder of where you want your module to be located ex. "C:\GitHub\". Plaster will create all the folders for your module.
