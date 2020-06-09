@@ -23,6 +23,7 @@
       <choice label="&amp;4.0" help="Minimum PowerShell Version required is 4.0 (Legacy)" value="4.0" />
       <choice label="&amp;5.1" help="Minimum PowerShell Version required is 5.1" value="5.1" />
       <choice label="&amp;6.0" help="Minimum PowerShell Version required is 6.0 (PowerShell Core/.Net Standard 2.x Compliant)" value="6.0" />
+      <choice label="&amp;7.0" help="Minimum PowerShell Version required is 7.0 (PowerShell 7)" value="7.0" />
     </parameter>
 
     <parameter name="ModuleFolders" type="multichoice" prompt="Which folders should be created in this module project?" default='0,1'>
