@@ -4,6 +4,6 @@ This repo is the documentation repo, where the DevOps Team continues to update t
 
 ## Guides
 
-- [Git setup](/Guides/Git_Setup.md)
-- [Plaster](/guides/Plaster.md)
-- [Setting up TFS Build Pipeline](/Guides/TFSPipeline.md)
+- [Git setup](Guides/Git_Setup.md)
+- [Plaster](Guides/Plaster.md)
+- [Setting up TFS Build Pipeline](Guides/TFSPipeline.md)
